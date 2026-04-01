@@ -1,12 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+import { useState, useMemo } from 'react'
+import { createClient } from '@/lib/supabase/client'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -33,6 +28,7 @@ function StarPicker({ value, onChange }: { value: number; onChange: (v: number) 
 }
 
 export function AvisSubmitForm() {
+  const supabase = useMemo(() => createClient(), [])
   const [formState, setFormState] = useState<FormState>('idle')
   const [authorName, setAuthorName] = useState('')
   const [authorRole, setAuthorRole] = useState('')
