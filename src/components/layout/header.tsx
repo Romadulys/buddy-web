@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { totalItems, openCart } = useCart();
 
   return (
     <>
@@ -41,8 +43,26 @@ export function Header() {
             <Link href="/login" className="hidden md:block text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">
               Connexion
             </Link>
-            <Link href="#pricing" className="btn-gradient rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md">
-              Précommander
+
+            {/* Cart icon */}
+            <button
+              onClick={openCart}
+              className="relative p-2 rounded-xl text-zinc-600 hover:bg-purple-50 hover:text-[#9333EA] transition-colors"
+              aria-label="Panier"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full btn-gradient text-white text-[10px] font-black flex items-center justify-center shadow-md">
+                  {totalItems > 9 ? "9+" : totalItems}
+                </span>
+              )}
+            </button>
+
+            <Link href="/#shop" className="btn-gradient rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md">
+              Choisir mon Buddy
             </Link>
             <button className="md:hidden p-2 rounded-lg text-zinc-600" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? (

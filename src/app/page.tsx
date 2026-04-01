@@ -1,31 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
-/* ─── Character catalogue ─────────────────────────────────── */
-const coques = [
-  { img: "/images/device/p02.jpg",  name: "Luna",      label: "Licorne Rose",        emoji: "🦄" },
-  { img: "/images/device/p12.jpg",  name: "Ariel",     label: "Sirène Princesse",    emoji: "🧜" },
-  { img: "/images/device/p13.jpg",  name: "Drago",     label: "Dragon Vert",         emoji: "🐉" },
-  { img: "/images/device/p17.jpg",  name: "Fantôme",   label: "Fantôme Kawaii",      emoji: "👻" },
-  { img: "/images/device/p05.jpg",  name: "Bambou",    label: "Panda",               emoji: "🐼" },
-  { img: "/images/device/p03.jpg",  name: "Pablo",     label: "Pingouin",            emoji: "🐧" },
-  { img: "/images/device/p21.jpg",  name: "Aviateur",  label: "Avion Bleu",          emoji: "✈️" },
-  { img: "/images/device/p09.jpg",  name: "Lola",      label: "Lapin Blanc",         emoji: "🐰" },
-  { img: "/images/device/p07.jpg",  name: "Mimi",      label: "Chat Gris",           emoji: "🐱" },
-  { img: "/images/device/p15.jpg",  name: "Ellie",     label: "Éléphant",            emoji: "🐘" },
-  { img: "/images/device/p16.jpg",  name: "Pompier",   label: "Camion de Pompier",   emoji: "🚒" },
-  { img: "/images/device/p14.jpg",  name: "Flash",     label: "Voiture de Course",   emoji: "🏎️" },
-  { img: "/images/device/p22.jpg",  name: "Hérisson",  label: "Hérisson",            emoji: "🦔" },
-  { img: "/images/device/p25.jpg",  name: "Rex",       label: "Dinosaure",           emoji: "🦕" },
-  { img: "/images/device/p20.jpg",  name: "Roux",      label: "Renard",              emoji: "🦊" },
-  { img: "/images/device/p06.jpg",  name: "Pip",       label: "Caneton Jaune",       emoji: "🐣" },
-  { img: "/images/device/p01.jpg",  name: "Léo",       label: "Lionceau",            emoji: "🦁" },
-  { img: "/images/device/p08.jpg",  name: "Nino",      label: "Petit Ours",          emoji: "🐻" },
-  { img: "/images/device/p04.jpg",  name: "Orso",      label: "Ours Noir",           emoji: "🐻" },
-  { img: "/images/device/p10.jpg",  name: "Caramel",   label: "Ours Pêche",          emoji: "🍑" },
-  { img: "/images/device/p11.jpg",  name: "Coton",     label: "Grand Lapin",         emoji: "🐰" },
-  { img: "/images/device/p19.jpg",  name: "Fantasia",  label: "À découvrir",         emoji: "✨" },
-];
+import { COQUES } from "@/lib/coques";
 
 export default function Home() {
   return (
@@ -158,9 +133,9 @@ export default function Home() {
 
           {/* Character grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-5">
-            {coques.map((c) => (
-              <div key={c.name}
-                className="group bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:border-[#9333EA] hover:shadow-xl hover:shadow-purple-100 transition-all duration-200 cursor-pointer">
+            {COQUES.map((c) => (
+              <Link key={c.slug} href={`/coques/${c.slug}`}
+                className="group bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:border-[#9333EA] hover:shadow-xl hover:shadow-purple-100 transition-all duration-200">
                 {/* Product image */}
                 <div className="bg-zinc-50 aspect-square relative overflow-hidden">
                   <Image
@@ -170,6 +145,16 @@ export default function Home() {
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  {c.popular && (
+                    <span className="absolute top-2 left-2 text-[10px] bg-white/90 text-[#9333EA] font-bold px-2 py-0.5 rounded-full border border-purple-100">
+                      ⭐ Coup de cœur
+                    </span>
+                  )}
+                  {c.isNew && (
+                    <span className="absolute top-2 left-2 text-[10px] bg-gradient-to-r from-[#9333EA] to-[#EC4899] text-white font-bold px-2 py-0.5 rounded-full">
+                      Nouveau
+                    </span>
+                  )}
                 </div>
                 {/* Info */}
                 <div className="p-3">
@@ -177,10 +162,10 @@ export default function Home() {
                   <p className="text-xs text-zinc-400 leading-tight mb-2">{c.label}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-black text-[#9333EA]">14,99€</span>
-                    <span className="text-xs bg-purple-50 text-[#9333EA] border border-purple-100 rounded-full px-2 py-0.5 font-semibold">Coque</span>
+                    <span className="text-xs text-zinc-400 font-medium group-hover:text-[#9333EA] transition-colors">Voir →</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
