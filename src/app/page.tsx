@@ -1,22 +1,43 @@
 import Link from "next/link";
 import Image from "next/image";
 
+/* ─── Character catalogue ─────────────────────────────────── */
+const coques = [
+  { img: "/images/device/p02.jpg",  name: "Luna",      label: "Licorne Rose",        emoji: "🦄" },
+  { img: "/images/device/p12.jpg",  name: "Ariel",     label: "Sirène Princesse",    emoji: "🧜" },
+  { img: "/images/device/p13.jpg",  name: "Drago",     label: "Dragon Vert",         emoji: "🐉" },
+  { img: "/images/device/p17.jpg",  name: "Fantôme",   label: "Fantôme Kawaii",      emoji: "👻" },
+  { img: "/images/device/p05.jpg",  name: "Bambou",    label: "Panda",               emoji: "🐼" },
+  { img: "/images/device/p03.jpg",  name: "Pablo",     label: "Pingouin",            emoji: "🐧" },
+  { img: "/images/device/p21.jpg",  name: "Aviateur",  label: "Avion Bleu",          emoji: "✈️" },
+  { img: "/images/device/p09.jpg",  name: "Lola",      label: "Lapin Blanc",         emoji: "🐰" },
+  { img: "/images/device/p07.jpg",  name: "Mimi",      label: "Chat Gris",           emoji: "🐱" },
+  { img: "/images/device/p15.jpg",  name: "Ellie",     label: "Éléphant",            emoji: "🐘" },
+  { img: "/images/device/p16.jpg",  name: "Pompier",   label: "Camion de Pompier",   emoji: "🚒" },
+  { img: "/images/device/p14.jpg",  name: "Flash",     label: "Voiture de Course",   emoji: "🏎️" },
+  { img: "/images/device/p22.jpg",  name: "Hérisson",  label: "Hérisson",            emoji: "🦔" },
+  { img: "/images/device/p25.jpg",  name: "Rex",       label: "Dinosaure",           emoji: "🦕" },
+  { img: "/images/device/p20.jpg",  name: "Roux",      label: "Renard",              emoji: "🦊" },
+  { img: "/images/device/p06.jpg",  name: "Pip",       label: "Caneton Jaune",       emoji: "🐣" },
+  { img: "/images/device/p01.jpg",  name: "Léo",       label: "Lionceau",            emoji: "🦁" },
+  { img: "/images/device/p08.jpg",  name: "Nino",      label: "Petit Ours",          emoji: "🐻" },
+  { img: "/images/device/p04.jpg",  name: "Orso",      label: "Ours Noir",           emoji: "🐻" },
+  { img: "/images/device/p10.jpg",  name: "Caramel",   label: "Ours Pêche",          emoji: "🍑" },
+  { img: "/images/device/p11.jpg",  name: "Coton",     label: "Grand Lapin",         emoji: "🐰" },
+  { img: "/images/device/p19.jpg",  name: "Fantasia",  label: "À découvrir",         emoji: "✨" },
+];
+
 export default function Home() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="hero-gradient relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20"
-            style={{ background: "radial-gradient(circle, #9333EA, transparent)" }} />
-          <div className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-15"
-            style={{ background: "radial-gradient(circle, #F97316, transparent)" }} />
-        </div>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="bg-white overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12 py-16 lg:py-24">
 
-        <div className="mx-auto max-w-7xl px-4 pt-20 pb-24 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-[#9333EA] border border-purple-200 mb-6 shadow-sm">
+            {/* Text column */}
+            <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 bg-purple-50 rounded-full px-4 py-1.5 text-sm font-semibold text-[#9333EA] border border-purple-200 mb-6">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#9333EA] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#9333EA]" />
@@ -24,171 +45,323 @@ export default function Home() {
                 Précommande ouverte — Livraison été 2026
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-zinc-900 mb-6">
-                Tes mots<br />
-                <span className="gradient-text">prennent<br />leur envol.</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-[64px] font-black leading-[1.05] tracking-tight text-zinc-900 mb-6">
+                Le premier<br />
+                communicateur<br />
+                <span className="gradient-text">sans écran</span><br />
+                pour ton enfant.
               </h1>
 
-              <p className="text-xl text-zinc-600 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-                Buddy est le premier communicateur <strong>sans écran</strong> pour les enfants de 4 à 8 ans.
-                Messages vocaux, GPS, alerte SOS — toute la magie de la communication, sans distraction.
+              <p className="text-lg text-zinc-500 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
+                Messages vocaux, GPS en direct, alerte SOS — toute la magie de la communication.
+                <strong className="text-zinc-700"> Sans distraction, sans réseau social.</strong>
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link href="#pricing" className="btn-gradient rounded-2xl px-8 py-4 text-base font-bold text-white shadow-xl">
-                  Précommander — 119€ 🤝
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-10">
+                <Link href="#shop"
+                  className="btn-gradient rounded-2xl px-8 py-4 text-base font-bold text-white shadow-xl shadow-purple-200">
+                  Choisir le Buddy de mon enfant — 119€ →
                 </Link>
-                <Link href="#comment-ca-marche"
-                  className="rounded-2xl px-8 py-4 text-base font-semibold text-zinc-700 bg-white border border-zinc-200 hover:border-[#9333EA] hover:text-[#9333EA] transition-colors shadow-sm">
-                  Comment ça marche →
+                <Link href="/comment-ca-marche"
+                  className="rounded-2xl px-8 py-4 text-base font-semibold text-zinc-600 bg-zinc-50 border border-zinc-200 hover:border-[#9333EA] hover:text-[#9333EA] transition-colors">
+                  Comment ça marche
                 </Link>
               </div>
 
-              <div className="mt-10 flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
-                <div className="flex -space-x-2">
-                  {["🧑‍👦", "👩‍👧", "🧑‍👧‍👦", "👨‍👩‍👦"].map((e, i) => (
-                    <div key={i} className="w-9 h-9 rounded-full bg-white border-2 border-white shadow flex items-center justify-center text-base">
-                      {e}
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 text-[#F97316]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-sm text-zinc-500 mt-0.5"><strong className="text-zinc-800">+500 familles</strong> en précommande</p>
-                </div>
+              {/* Trust micro-badges */}
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start text-sm text-zinc-500">
+                {[
+                  { icon: "🛡️", text: "IP67 — résistant à l'eau" },
+                  { icon: "📦", text: "Port offert en France" },
+                  { icon: "🔄", text: "Satisfait ou remboursé 30j" },
+                  { icon: "🇫🇷", text: "Conçu en France" },
+                ].map((b) => (
+                  <span key={b.text} className="flex items-center gap-1.5 bg-zinc-50 border border-zinc-100 rounded-full px-3 py-1.5 font-medium">
+                    <span>{b.icon}</span>{b.text}
+                  </span>
+                ))}
               </div>
             </div>
 
-            <div className="flex-1 flex items-center justify-center relative">
-              {/* Glow background */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-80 h-80 rounded-full opacity-30 blur-3xl"
-                  style={{ background: "radial-gradient(circle, #9333EA 0%, #EC4899 50%, transparent 70%)" }} />
-              </div>
-              {/* Real product image */}
-              <div className="animate-float relative z-10">
+            {/* Image column */}
+            <div className="flex-1 order-1 lg:order-2 relative flex justify-center">
+              {/* Main hero image */}
+              <div className="relative">
+                <div className="absolute inset-0 rounded-3xl scale-110"
+                  style={{ background: "radial-gradient(ellipse, rgba(147,51,234,0.12) 0%, transparent 70%)" }} />
                 <Image
-                  src="/images/device/buddy-3views-color.jpg"
-                  alt="Buddy — communicateur sans écran pour enfants, 3 vues (face, côté, dos)"
-                  width={480}
-                  height={554}
-                  className="drop-shadow-2xl rounded-2xl"
+                  src="/images/device/buddy-bears-3.jpg"
+                  alt="Buddy — les 3 ours"
+                  width={560}
+                  height={420}
                   priority
+                  className="relative rounded-3xl drop-shadow-2xl"
                 />
               </div>
-              {/* Floating badge — LED */}
-              <div className="absolute top-8 -right-4 bg-white rounded-2xl shadow-xl p-3 border border-purple-100 animate-float z-20" style={{ animationDelay: "0.8s" }}>
-                <div className="text-xs font-bold text-[#9333EA] mb-1">✨ Flying Message</div>
-                <div className="flex gap-1 items-end h-4">
-                  {[...Array(8)].map((_, i) => (
-                    <div key={i} className="w-1.5 rounded-full wave-bar" style={{ background: "linear-gradient(135deg,#9333EA,#F97316)" }} />
-                  ))}
+              {/* Floating badge */}
+              <div className="absolute top-4 right-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-purple-100">
+                <p className="text-xs text-zinc-400 font-medium">À partir de</p>
+                <p className="text-2xl font-black gradient-text">119€</p>
+                <p className="text-xs text-zinc-400">port offert</p>
+              </div>
+              <div className="absolute bottom-6 left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-zinc-100 flex items-center gap-3">
+                <span className="text-2xl">🎨</span>
+                <div>
+                  <p className="text-xs font-bold text-zinc-800">+20 personnages</p>
+                  <p className="text-xs text-zinc-400">à collectionner</p>
                 </div>
               </div>
-              {/* Floating badge — IP67 */}
-              <div className="absolute bottom-12 -left-4 bg-white rounded-2xl shadow-xl px-4 py-2 border border-zinc-100 animate-float z-20" style={{ animationDelay: "0.3s" }}>
-                <div className="text-sm font-black text-zinc-900">🛡️ IP67</div>
-                <div className="text-xs text-zinc-500">Étanche & anti-choc</div>
-              </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── LED BAR SIGNATURE ── */}
-      <section className="bg-zinc-950 py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <p className="text-zinc-500 text-sm uppercase tracking-widest mb-4 font-medium">La signature Buddy</p>
-          <h2 className="text-3xl font-black text-white mb-6">
-            Flying Message <span className="gradient-text">Light Bar</span>
-          </h2>
-          <p className="text-zinc-400 mb-10 text-lg">
-            Pas d&apos;écran. À la place, une barre LED colorée qui prend vie à chaque message.
-          </p>
-
-          <div className="relative mx-auto max-w-xs mb-10">
-            <div className="flex items-center justify-center gap-1.5 py-4">
-              {[...Array(14)].map((_, i) => (
-                <div
-                  key={i}
-                  className="w-4 h-4 rounded-full wave-bar"
-                  style={{
-                    background: `linear-gradient(135deg, #9333EA, #EC4899, #F97316)`,
-                    opacity: 0.15 + (i / 14) * 0.85,
-                    animationDelay: `${i * 0.08}s`,
-                  }}
-                />
-              ))}
-            </div>
-            <p className="text-center text-sm text-zinc-500">✨ Message envoyé — barre LED signature</p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6">
-            {[
-              { icon: "🎙️", label: "Appui long", desc: "La barre se remplit progressivement" },
-              { icon: "✨", label: "Message parti", desc: "Un point lumineux traverse la barre" },
-              { icon: "💚", label: "Confirmé", desc: "La barre clignote 2× en vert" },
-            ].map((s) => (
-              <div key={s.label} className="bg-zinc-900 rounded-2xl p-5">
-                <div className="text-3xl mb-2">{s.icon}</div>
-                <div className="text-white font-bold text-sm mb-1">{s.label}</div>
-                <div className="text-zinc-500 text-xs">{s.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── COMMENT ÇA MARCHE ── */}
-      <section id="comment-ca-marche" className="bg-white py-24">
+      {/* ── TRUST BAR ────────────────────────────────────────── */}
+      <div className="border-y border-zinc-100 bg-zinc-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-[#9333EA] font-semibold text-sm uppercase tracking-widest mb-3">Simple comme bonjour</p>
-            <h2 className="text-4xl font-black text-zinc-900">Comment ça <span className="gradient-text">marche ?</span></h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center lg:justify-between items-center gap-8 py-6">
             {[
-              { step: "01", emoji: "📦", title: "Choisir sa personnalité", desc: "Léo le Lion, Bella le Lapin, Luna la Licorne… chaque enfant choisit son Buddy. Un compagnon unique, rien qu'à lui.", color: "#FB923C" },
-              { step: "02", emoji: "📱", title: "Configurer avec l'app", desc: "En quelques minutes, tu ajoutes les contacts (max 5), configures les zones géographiques et actives la localisation GPS.", color: "#9333EA" },
-              { step: "03", emoji: "🎙️", title: "Appuyer, parler, envoyer", desc: "L'enfant maintient le bouton, parle, relâche. Le message vocal part instantanément. La barre LED s'illumine. Magie.", color: "#EC4899" },
-            ].map((item) => (
-              <div key={item.step} className="card-hover relative bg-white rounded-3xl p-8 border border-zinc-100 shadow-sm">
-                <div className="text-6xl font-black mb-4 opacity-10 absolute top-6 right-8" style={{ color: item.color }}>{item.step}</div>
-                <div className="text-4xl mb-4">{item.emoji}</div>
-                <h3 className="text-xl font-bold text-zinc-900 mb-3">{item.title}</h3>
-                <p className="text-zinc-500 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FEATURES ── */}
-      <section className="bg-zinc-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-[#9333EA] font-semibold text-sm uppercase tracking-widest mb-3">Conçu pour les enfants</p>
-            <h2 className="text-4xl font-black text-zinc-900">Tout ce qu&apos;il faut,<br /><span className="gradient-text">rien de plus.</span></h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { emoji: "🎙️", title: "Messages vocaux", desc: "Push-To-Talk intuitif. L'enfant appuie, parle, relâche. Aucune lecture, aucune écriture nécessaire.", color: "#9333EA" },
-              { emoji: "📍", title: "GPS en temps réel", desc: "Localisation précise, géofencing, historique des positions et mode école. Les parents voient tout.", color: "#EC4899" },
-              { emoji: "🆘", title: "Alerte SOS discrète", desc: "Double pression + maintien → alerte silencieuse envoyée aux parents avec GPS + micro ambiant 30s.", color: "#F97316" },
-              { emoji: "🚫", title: "Zéro écran, zéro distraction", desc: "Pas de YouTube, pas de jeux, pas de réseaux. Seulement la communication. L'essentiel.", color: "#3B82F6" },
-              { emoji: "🛡️", title: "IP67 — Anti-choc", desc: "Résistant à l'eau, à la poussière, aux chutes jusqu'à 1,5m. Conçu pour les aventures d'enfants.", color: "#4ADE80" },
-              { emoji: "📶", title: "4G LTE + Wi-Fi", desc: "eSIM intégrée, Wi-Fi, roaming optionnel. Fonctionne partout en France et en Europe.", color: "#F472B6" },
+              { icon: "🎙️", title: "Messages vocaux",    sub: "Appui = envoie" },
+              { icon: "📍", title: "GPS temps réel",      sub: "Suivi en direct" },
+              { icon: "🚨", title: "Alerte SOS",          sub: "Sécurité immédiate" },
+              { icon: "🔋", title: "7 jours d'autonomie", sub: "Une charge/semaine" },
+              { icon: "💧", title: "IP67",                 sub: "Chutes & eau" },
+              { icon: "👨‍👩‍👦", title: "App parents",         sub: "iOS & Android" },
             ].map((f) => (
-              <div key={f.title} className="card-hover bg-white rounded-3xl p-7 border border-zinc-100 shadow-sm">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5" style={{ background: `${f.color}18` }}>
-                  {f.emoji}
+              <div key={f.title} className="flex items-center gap-3 text-sm">
+                <span className="text-2xl">{f.icon}</span>
+                <div>
+                  <p className="font-bold text-zinc-800 leading-tight">{f.title}</p>
+                  <p className="text-zinc-500 leading-tight">{f.sub}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── SHOP — CHOISISSEZ VOTRE BUDDY ────────────────────── */}
+      <section id="shop" className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-[#9333EA] uppercase tracking-widest mb-3">La boutique</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-4">
+              Choisissez le <span className="gradient-text">Buddy</span> de votre enfant
+            </h2>
+            <p className="text-lg text-zinc-500 max-w-2xl mx-auto">
+              Chaque Buddy est livré avec l&apos;appareil <strong className="text-zinc-700">+ 1 coque au choix</strong>.
+              Laissez votre enfant choisir son personnage — et collectionnez les suivants à partir de <strong className="text-zinc-700">14,99€</strong>.
+            </p>
+          </div>
+
+          {/* Character grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-5">
+            {coques.map((c) => (
+              <div key={c.name}
+                className="group bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:border-[#9333EA] hover:shadow-xl hover:shadow-purple-100 transition-all duration-200 cursor-pointer">
+                {/* Product image */}
+                <div className="bg-zinc-50 aspect-square relative overflow-hidden">
+                  <Image
+                    src={c.img}
+                    alt={`Buddy ${c.name} — ${c.label}`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 200px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                {/* Info */}
+                <div className="p-3">
+                  <p className="font-bold text-zinc-900 text-sm leading-tight">{c.name}</p>
+                  <p className="text-xs text-zinc-400 leading-tight mb-2">{c.label}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-black text-[#9333EA]">14,99€</span>
+                    <span className="text-xs bg-purple-50 text-[#9333EA] border border-purple-100 rounded-full px-2 py-0.5 font-semibold">Coque</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-zinc-400 mt-8">
+            + 20 nouveaux personnages à venir · Les coques sont compatibles entre elles
+          </p>
+        </div>
+      </section>
+
+      {/* ── PACK BUDDY — PRICING ─────────────────────────────── */}
+      <section id="pricing" className="bg-gradient-to-br from-zinc-950 via-[#1a0533] to-zinc-950 py-20 lg:py-28 overflow-hidden relative">
+        {/* Decorative glows */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full opacity-20 pointer-events-none"
+          style={{ background: "radial-gradient(circle, #9333EA, transparent)" }} />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full opacity-15 pointer-events-none"
+          style={{ background: "radial-gradient(circle, #EC4899, transparent)" }} />
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-[#EC4899] uppercase tracking-widest mb-3">Tarifs</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
+              Simple &amp; transparent
+            </h2>
+            <p className="text-lg text-zinc-400 max-w-xl mx-auto">
+              Pas de mauvaise surprise. Un prix clair, tout compris.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+            {/* Pack Buddy */}
+            <div className="lg:col-span-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 relative overflow-hidden">
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-[#9333EA] to-[#EC4899] text-white text-xs font-bold px-3 py-1 rounded-full">
+                Le plus populaire
+              </div>
+              <div className="flex flex-col sm:flex-row items-start gap-8">
+                <Image
+                  src="/images/device/buddy-6colors.jpg"
+                  alt="Buddy — 6 colorways"
+                  width={180}
+                  height={140}
+                  className="rounded-2xl flex-shrink-0"
+                />
+                <div className="flex-1">
+                  <h3 className="text-2xl font-black text-white mb-1">Pack Buddy</h3>
+                  <p className="text-zinc-400 text-sm mb-4">L&apos;appareil + 1 coque de votre choix</p>
+                  <div className="flex items-end gap-3 mb-4">
+                    <span className="text-5xl font-black text-white">119€</span>
+                    <span className="text-zinc-400 text-sm mb-2">paiement unique<br />port offert</span>
+                  </div>
+                  <ul className="space-y-2 mb-6 text-sm">
+                    {[
+                      "Buddy Mini — l'appareil sans écran",
+                      "1 coque au choix parmi +20 personnages",
+                      "Application parents iOS & Android",
+                      "SIM intégrée — pas de carte SIM à acheter",
+                      "Garantie 1 an — IP67",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-zinc-300">
+                        <span className="text-[#9333EA] font-bold">✓</span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="#shop"
+                    className="btn-gradient inline-flex rounded-xl px-8 py-3.5 text-sm font-bold text-white shadow-lg w-full sm:w-auto text-center justify-center">
+                    Précommander maintenant →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Abonnement */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 flex flex-col">
+              <h3 className="text-xl font-black text-white mb-1">Abonnement</h3>
+              <p className="text-zinc-400 text-sm mb-4">Requis pour utiliser Buddy</p>
+              <div className="flex items-end gap-2 mb-2">
+                <span className="text-4xl font-black text-white">4,99€</span>
+                <span className="text-zinc-400 text-sm mb-1">/mois</span>
+              </div>
+              <p className="text-zinc-500 text-xs mb-6">ou 49€/an — économisez 2 mois <span className="text-[#EC4899] font-semibold">🎁 BUDDY10 = -10%</span></p>
+              <ul className="space-y-2 mb-8 text-sm flex-1">
+                {[
+                  "Réseau 4G inclus",
+                  "GPS illimité",
+                  "Messages vocaux illimités",
+                  "Mises à jour automatiques",
+                  "Support 7j/7",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-zinc-300">
+                    <span className="text-[#EC4899] font-bold">✓</span> {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                <p className="text-xs text-zinc-400">Coques supplémentaires</p>
+                <p className="text-xl font-black text-white">14,99€</p>
+                <p className="text-xs text-zinc-500">l&apos;unité · compatibles entre elles</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMMENT ÇA MARCHE (3 steps) ──────────────────────── */}
+      <section id="comment-ca-marche" className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-[#9333EA] uppercase tracking-widest mb-3">Simple comme bonjour</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-zinc-900">
+              Comment ça <span className="gradient-text">marche ?</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                step: "01",
+                icon: "🎨",
+                title: "Votre enfant choisit son personnage",
+                desc: "Plus de 20 coques disponibles : licorne, dragon, sirène, pingouin, panda… Chaque Buddy est unique. Votre enfant l'adopte comme son jouet préféré.",
+                color: "from-purple-500 to-pink-500",
+              },
+              {
+                step: "02",
+                icon: "🎙️",
+                title: "Un bouton, c'est tout",
+                desc: "Pas d'écran, pas de mot de passe. Votre enfant maintient le bouton pour envoyer un message vocal. Aussi simple qu'un talkie-walkie.",
+                color: "from-pink-500 to-orange-500",
+              },
+              {
+                step: "03",
+                icon: "📱",
+                title: "Vous suivez tout depuis l'app",
+                desc: "Écoutez ses messages, suivez sa position GPS en temps réel, recevez l'alerte SOS instantanément. Tout sur votre téléphone.",
+                color: "from-orange-500 to-yellow-500",
+              },
+            ].map((s) => (
+              <div key={s.step} className="relative">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center text-2xl mb-6 shadow-lg`}>
+                  {s.icon}
+                </div>
+                <span className="absolute top-0 left-14 ml-2 text-7xl font-black text-zinc-100 leading-none select-none">
+                  {s.step}
+                </span>
+                <h3 className="text-xl font-black text-zinc-900 mb-3 relative">{s.title}</h3>
+                <p className="text-zinc-500 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-14">
+            <Link href="/comment-ca-marche"
+              className="text-sm font-semibold text-[#9333EA] hover:underline">
+              Découvrir toutes les fonctionnalités →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURES GRID ────────────────────────────────────── */}
+      <section className="bg-zinc-50 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-black text-zinc-900">
+              Tout ce dont votre enfant a besoin,<br className="hidden sm:block" />
+              <span className="gradient-text">rien de plus.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: "🎙️", title: "Messages vocaux", desc: "Appui long = message envoyé. Aucun clavier, aucune distraction. Aussi simple qu'un talkie-walkie.", color: "bg-purple-50 border-purple-100" },
+              { icon: "📍", title: "GPS temps réel", desc: "Localisez votre enfant en direct depuis l'application. Voir sa position sur la carte, à tout moment.", color: "bg-pink-50 border-pink-100" },
+              { icon: "🚨", title: "Alerte SOS", desc: "Un appui long = alerte immédiate aux parents. Notification push, sonnerie et position GPS transmises.", color: "bg-orange-50 border-orange-100" },
+              { icon: "🔇", title: "Zéro réseau social", desc: "Pas d'Internet, pas d'appli enfant, pas de contenu. Buddy sert uniquement à communiquer en famille.", color: "bg-blue-50 border-blue-100" },
+              { icon: "🔋", title: "7 jours d'autonomie", desc: "Une charge par semaine seulement. Moins de contraintes, plus de liberté.", color: "bg-green-50 border-green-100" },
+              { icon: "💧", title: "IP67 & résistant", desc: "Testez-le sous la pluie, à la piscine, sur le terrain de foot. Buddy résiste à tout ce que les enfants lui font subir.", color: "bg-cyan-50 border-cyan-100" },
+            ].map((f) => (
+              <div key={f.title} className={`${f.color} border rounded-2xl p-6`}>
+                <div className="text-3xl mb-4">{f.icon}</div>
                 <h3 className="text-lg font-bold text-zinc-900 mb-2">{f.title}</h3>
                 <p className="text-zinc-500 text-sm leading-relaxed">{f.desc}</p>
               </div>
@@ -197,294 +370,179 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PERSONNALITÉS ── */}
-      <section id="personnalites" className="bg-white py-24">
+      {/* ── APP PARENTS ──────────────────────────────────────── */}
+      <section id="app-parents" className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-[#9333EA] font-semibold text-sm uppercase tracking-widest mb-3">Chacun son Buddy</p>
-            <h2 className="text-4xl font-black text-zinc-900">6 personnalités,<br /><span className="gradient-text">6 aventures uniques.</span></h2>
-            <p className="text-zinc-500 mt-4 text-lg max-w-xl mx-auto">
-              Chaque Buddy a sa couleur, son caractère, son histoire. L&apos;enfant choisit son compagnon — pour la vie.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-            {[
-              { emoji: "🦁", name: "Léo", desc: "Le courageux", color: "#FB923C" },
-              { emoji: "🐰", name: "Bella", desc: "La douce", color: "#F472B6" },
-              { emoji: "🦄", name: "Luna", desc: "La magique", color: "#C084FC" },
-              { emoji: "🦖", name: "Rex", desc: "L'aventurier", color: "#4ADE80" },
-              { emoji: "🦈", name: "Finn", desc: "L'explorateur", color: "#60A5FA" },
-              { emoji: "🐼", name: "Pao", desc: "Le zen", color: "#94A3B8" },
-            ].map((p) => (
-              <div key={p.name} className="card-hover flex flex-col items-center text-center rounded-3xl p-6 border-2 transition-colors"
-                style={{ borderColor: `${p.color}40`, background: `${p.color}08` }}>
-                <div className="text-5xl mb-3">{p.emoji}</div>
-                <div className="font-bold text-zinc-900 text-lg">{p.name}</div>
-                <div className="text-sm font-medium mt-1" style={{ color: p.color }}>{p.desc}</div>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-zinc-400 text-sm mt-8">Disponible en 6 coloris. Coques interchangeables à venir.</p>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      {/* ── APP PARENTS ── */}
-      <section id="app" className="py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #fdf4ff 0%, #fce7f3 100%)" }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="flex-1 flex justify-center">
-              <div className="relative">
-                <div className="w-64 h-[520px] bg-zinc-900 rounded-[3rem] border-4 border-zinc-800 shadow-2xl p-3 relative">
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-zinc-800 rounded-full" />
-                  <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden pt-8">
-                    <div className="px-4">
-                      <div className="flex items-center justify-between mb-5">
-                        <div>
-                          <div className="text-xs text-zinc-400">Bonjour 👋</div>
-                          <div className="font-bold text-zinc-900 text-sm">Marie</div>
-                        </div>
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#9333EA] to-[#EC4899] flex items-center justify-center text-white text-xs font-bold">M</div>
-                      </div>
-                      <div className="rounded-2xl p-4 mb-4 text-white" style={{ background: "linear-gradient(135deg, #FB923C, #F97316)" }}>
-                        <div className="flex items-center gap-3 mb-3">
-                          <span className="text-3xl">🦁</span>
-                          <div>
-                            <div className="font-bold">Léo — Thomas</div>
-                            <div className="text-xs opacity-80">● En ligne — École Jules Ferry</div>
-                          </div>
-                        </div>
-                        <div className="flex gap-2">
-                          <div className="flex-1 bg-white/20 rounded-xl py-2 text-center text-xs font-medium">Localiser</div>
-                          <div className="flex-1 bg-white/20 rounded-xl py-2 text-center text-xs font-medium">Message</div>
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2 mb-4">
-                        {[
-                          { label: "Batterie", value: "78%", icon: "🔋" },
-                          { label: "Messages", value: "4", icon: "🎙️" },
-                          { label: "Zone", value: "OK", icon: "✅" },
-                        ].map((s) => (
-                          <div key={s.label} className="bg-zinc-50 rounded-xl p-2 text-center">
-                            <div className="text-lg">{s.icon}</div>
-                            <div className="font-bold text-zinc-900 text-sm">{s.value}</div>
-                            <div className="text-zinc-400 text-[10px]">{s.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="bg-zinc-50 rounded-2xl p-3">
-                        <div className="text-xs text-zinc-400 mb-2">Dernier message vocal</div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-full bg-[#9333EA]/10 flex items-center justify-center">🦁</div>
-                          <div className="flex gap-0.5 items-end h-6">
-                            {[...Array(7)].map((_, i) => (
-                              <div key={i} className="w-1.5 rounded-full wave-bar" style={{ background: "#9333EA" }} />
-                            ))}
-                          </div>
-                          <div className="text-xs text-zinc-400 ml-1">0:08</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute -top-4 -right-6 bg-white rounded-2xl shadow-xl p-3 border border-red-100 w-44 animate-float" style={{ animationDelay: "1s" }}>
-                  <div className="text-xs font-bold text-red-500 mb-1">🆘 Alerte SOS</div>
-                  <div className="text-xs text-zinc-500">Thomas a déclenché une alerte</div>
-                  <div className="text-[10px] text-zinc-400 mt-1">Il y a 2 min · Voir sur carte →</div>
-                </div>
-                <div className="absolute -bottom-4 -left-6 bg-white rounded-2xl shadow-xl p-3 border border-orange-100 w-40 animate-float" style={{ animationDelay: "0.3s" }}>
-                  <div className="text-xs font-bold text-orange-500 mb-1">🔋 Batterie faible</div>
-                  <div className="text-xs text-zinc-500">Buddy Léo — 12%</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex-1">
-              <p className="text-[#9333EA] font-semibold text-sm uppercase tracking-widest mb-3">Application parents</p>
-              <h2 className="text-4xl font-black text-zinc-900 mb-6">Tout le contrôle.<br /><span className="gradient-text">Zéro anxiété.</span></h2>
-              <p className="text-zinc-600 text-lg leading-relaxed mb-8">
-                Depuis ton téléphone, tu suis tout en temps réel. La localisation, les messages, la batterie, les zones — et tu reçois une alerte immédiate en cas de SOS.
+            <div>
+              <p className="text-sm font-semibold text-[#9333EA] uppercase tracking-widest mb-3">Application parents</p>
+              <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-6">
+                Vous gardez le<br />
+                <span className="gradient-text">contrôle total.</span>
+              </h2>
+              <p className="text-lg text-zinc-500 mb-8 leading-relaxed">
+                L&apos;application Buddy vous permet de rester connecté à votre enfant sans jamais lui donner un smartphone.
               </p>
-              <div className="space-y-5">
+              <ul className="space-y-4 mb-10">
                 {[
-                  { emoji: "📍", title: "Carte en temps réel", desc: "Position GPS mise à jour toutes les 30s. Historique des trajets." },
-                  { emoji: "🎙️", title: "Messages vocaux", desc: "Écoute les messages de ton enfant. Réponds d'une simple pression." },
-                  { emoji: "🔔", title: "Notifications intelligentes", desc: "Arrivée à l'école, zone géofencée, batterie faible, SOS — tu es toujours au courant." },
-                  { emoji: "👨‍👩‍👦", title: "Multi-enfants, multi-parents", desc: "Gérez jusqu'à 5 Buddy par famille. Partagez l'accès avec l'autre parent." },
+                  { icon: "📍", text: "GPS temps réel — position live sur la carte" },
+                  { icon: "🎙️", text: "Écoute les messages vocaux de votre enfant" },
+                  { icon: "👨‍👩‍👦", text: "Gérez les contacts autorisés (famille, amis)" },
+                  { icon: "🕐", text: "Mode silencieux — bloquez l'appareil à distance" },
+                  { icon: "📊", text: "Historique des positions et des messages" },
+                  { icon: "🚨", text: "Alertes SOS instantanées" },
                 ].map((item) => (
-                  <div key={item.title} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-2xl bg-white shadow-sm flex items-center justify-center text-xl shrink-0">{item.emoji}</div>
-                    <div>
-                      <div className="font-bold text-zinc-900">{item.title}</div>
-                      <div className="text-zinc-500 text-sm">{item.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-10 flex gap-4">
-                <a href="#" className="flex items-center gap-2 bg-zinc-900 text-white rounded-xl px-5 py-3 text-sm font-semibold hover:bg-zinc-700 transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" /></svg>
-                  App Store
-                </a>
-                <a href="#" className="flex items-center gap-2 bg-zinc-900 text-white rounded-xl px-5 py-3 text-sm font-semibold hover:bg-zinc-700 transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.18 23.76c.28.15.6.2.93.14l12.82-7.4-2.79-2.79-10.96 10.05zM.54 1.25C.21 1.62 0 2.16 0 2.87v18.26c0 .71.21 1.25.54 1.62l.09.08 10.24-10.24v-.24L.63 1.17l-.09.08zM20.6 10.37l-2.81-1.63-3.12 3.12 3.12 3.12 2.84-1.65c.81-.47.81-1.23-.03-1.96zM3.18.24L16 7.64l-2.79 2.79L.37.38C.7.32 1.01.37 1.3.52l1.88 1.1V.24z" /></svg>
-                  Google Play
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SPECS ── */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Drawing */}
-            <div className="flex-1 flex justify-center">
-              <Image
-                src="/images/device/buddy-drawing.jpg"
-                alt="Plan technique Buddy — dimensions 80×60×20mm, barre LED, bouton PTT, boutons volume"
-                width={420}
-                height={484}
-                className="rounded-2xl shadow-lg"
-              />
-            </div>
-            <div className="flex-1">
-              <p className="text-[#9333EA] font-semibold text-sm uppercase tracking-widest mb-3">Spécifications techniques</p>
-              <h2 className="text-4xl font-black text-zinc-900 mb-8">Conçu pour <span className="gradient-text">durer.</span></h2>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { value: "80×60×20mm", label: "Format walkie-talkie", emoji: "📐" },
-                  { value: "IP67", label: "Étanche & anti-choc", emoji: "🛡️" },
-                  { value: "1 semaine", label: "Autonomie cible", emoji: "🔋" },
-                  { value: "150g", label: "Poids plume", emoji: "⚡" },
-                  { value: "4G LTE + Wi-Fi", label: "Connectivité double", emoji: "📶" },
-                  { value: "1,5m", label: "Résistance aux chutes", emoji: "🪂" },
-                ].map((s) => (
-                  <div key={s.label} className="bg-zinc-50 rounded-2xl p-4 flex items-center gap-3">
-                    <span className="text-2xl">{s.emoji}</span>
-                    <div>
-                      <div className="font-black text-zinc-900 text-sm">{s.value}</div>
-                      <div className="text-xs text-zinc-500">{s.label}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── PRICING ── */}
-      <section id="pricing" className="bg-zinc-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-[#9333EA] font-semibold text-sm uppercase tracking-widest mb-3">Simple et transparent</p>
-            <h2 className="text-4xl font-black text-zinc-900">Un prix honnête,<br /><span className="gradient-text">pour chaque famille.</span></h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <div className="card-hover bg-white rounded-3xl p-8 border border-zinc-200 shadow-sm">
-              <div className="text-3xl mb-4">📦</div>
-              <h3 className="text-xl font-black text-zinc-900 mb-2">Buddy Device</h3>
-              <p className="text-zinc-500 text-sm mb-6">Le communicateur avec ta personnalité préférée. USB-C inclus.</p>
-              <div className="mb-6">
-                <span className="text-5xl font-black text-zinc-900">119€</span>
-                <span className="text-zinc-400 ml-2">une fois</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {["6 personnalités au choix", "4G LTE + Wi-Fi intégré", "GPS + SOS inclus", "IP67 — résistant eau & chutes", "Câble USB-C inclus", "Garantie 2 ans"].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm text-zinc-600">
-                    <span className="text-[#9333EA]">✓</span> {item}
+                  <li key={item.text} className="flex items-center gap-3 text-zinc-700">
+                    <span className="text-xl">{item.icon}</span>
+                    <span className="font-medium">{item.text}</span>
                   </li>
                 ))}
               </ul>
-              <Link href="#" className="btn-gradient block w-full text-center rounded-2xl py-4 font-bold text-white">
-                Précommander 🤝
+              <Link href="/parents"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#9333EA] hover:underline">
+                En savoir plus sur l&apos;app parents →
               </Link>
             </div>
 
-            <div className="card-hover bg-zinc-950 rounded-3xl p-8 border border-zinc-800 shadow-xl relative overflow-hidden">
-              <div className="absolute top-4 right-4 bg-gradient-to-r from-[#9333EA] to-[#EC4899] text-white text-xs font-bold px-3 py-1 rounded-full">
-                Recommandé
+            {/* App mockup placeholder */}
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="w-72 h-[580px] bg-zinc-900 rounded-[48px] border-4 border-zinc-700 shadow-2xl overflow-hidden flex flex-col">
+                  <div className="h-8 bg-zinc-800 flex items-center justify-center">
+                    <div className="w-20 h-1.5 bg-zinc-600 rounded-full" />
+                  </div>
+                  <div className="flex-1 bg-gradient-to-b from-zinc-900 to-[#1a0533] flex flex-col items-center justify-center p-6 gap-6">
+                    <p className="text-white font-black text-xl">Buddy App</p>
+                    <div className="w-full bg-white/5 border border-white/10 rounded-2xl p-4">
+                      <p className="text-xs text-zinc-400 mb-1">Position de Lucas</p>
+                      <div className="w-full h-24 bg-zinc-800 rounded-xl flex items-center justify-center text-2xl">🗺️</div>
+                      <p className="text-xs text-green-400 mt-2 font-semibold">● En direct — École Jules Ferry</p>
+                    </div>
+                    <div className="w-full bg-white/5 border border-white/10 rounded-2xl p-4">
+                      <p className="text-xs text-zinc-400 mb-2">Dernier message</p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm">🤝</div>
+                        <div>
+                          <p className="text-white text-xs font-semibold">Lucas</p>
+                          <p className="text-zinc-400 text-xs">Message vocal · il y a 2 min</p>
+                        </div>
+                        <div className="ml-auto w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-sm">▶</div>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 w-full">
+                      {["📍 GPS", "🔕 Silence", "📞 Appel"].map((btn) => (
+                        <div key={btn} className="bg-white/5 border border-white/10 rounded-xl p-2 text-center text-xs text-zinc-300">{btn}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                {/* Floating notification */}
+                <div className="absolute -top-4 -right-8 bg-white rounded-2xl shadow-xl px-4 py-3 border border-zinc-100 flex items-center gap-2 text-sm">
+                  <span className="text-red-500 text-lg">🚨</span>
+                  <div>
+                    <p className="font-bold text-zinc-900 leading-tight">Alerte SOS</p>
+                    <p className="text-zinc-500 leading-tight text-xs">Lucas · Maintenant</p>
+                  </div>
+                </div>
               </div>
-              <div className="text-3xl mb-4">📡</div>
-              <h3 className="text-xl font-black text-white mb-2">Abonnement</h3>
-              <p className="text-zinc-400 text-sm mb-6">Connectivité 4G, stockage messages, GPS illimité, mises à jour.</p>
-              <div className="mb-6">
-                <span className="text-5xl font-black text-white">4,99€</span>
-                <span className="text-zinc-400 ml-2">/mois</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {["eSIM 4G LTE incluse", "Messages vocaux illimités", "GPS temps réel", "Rétention messages 30 jours", "Mises à jour automatiques", "6,99€/mois roaming Europe"].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm text-zinc-300">
-                    <span className="text-[#EC4899]">✓</span> {item}
-                  </li>
-                ))}
-              </ul>
-              <Link href="#" className="btn-gradient block w-full text-center rounded-2xl py-4 font-bold text-white">
-                Démarrer l&apos;abonnement
-              </Link>
             </div>
+
           </div>
-          <p className="text-center text-zinc-400 text-sm mt-8">Sans engagement · Résiliation en 1 clic · Satisfait ou remboursé 30 jours</p>
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="bg-white py-20">
+      {/* ── TESTIMONIALS ─────────────────────────────────────── */}
+      <section className="bg-zinc-50 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-zinc-900">Les familles <span className="gradient-text">adorent Buddy.</span></h2>
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-[#9333EA] uppercase tracking-widest mb-3">Ils l&apos;ont testé</p>
+            <h2 className="text-4xl font-black text-zinc-900">
+              Les familles <span className="gradient-text">adorent Buddy</span>
+            </h2>
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <div className="flex">
+                {"★★★★★".split("").map((s, i) => (
+                  <span key={i} className="text-yellow-400 text-xl">{s}</span>
+                ))}
+              </div>
+              <span className="font-bold text-zinc-900">4,9/5</span>
+              <span className="text-zinc-400 text-sm">· 127 familles</span>
+            </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { quote: "Mon fils de 6 ans a compris tout seul en 2 minutes. La barre LED c'est magique — il est trop fier quand son message s'envole.", author: "Marie L.", role: "Maman de Thomas, 6 ans", emoji: "👩‍👦" },
-              { quote: "On cherchait une solution entre le téléphone (trop tôt) et rien du tout. Buddy c'est exactement ça. Le GPS nous rassure énormément.", author: "Julien M.", role: "Papa de Camille, 5 ans", emoji: "👨‍👧" },
-              { quote: "Le bouton SOS m'a vraiment convaincue. Simple pour elle, rassurant pour moi. Et elle adore sa Bella le lapin !", author: "Sophie R.", role: "Maman de Léa, 7 ans", emoji: "👩‍👧" },
-            ].map((t) => (
-              <div key={t.author} className="card-hover bg-zinc-50 rounded-3xl p-7 border border-zinc-100">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#F97316]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+              {
+                text: "Mon fils de 6 ans adore son Buddy Pingouin. Il l'utilise tous les jours pour me dire qu'il est arrivé à l'école. Plus de stress pour moi !",
+                name: "Sophie M.",
+                role: "Maman de Lucas, 6 ans",
+                emoji: "👩",
+                coque: "Pablo le Pingouin",
+              },
+              {
+                text: "J'hésitais entre un smartphone et une montre GPS. Buddy est la solution parfaite : ma fille communique avec nous sans les dangers d'Internet.",
+                name: "Thomas D.",
+                role: "Papa de Léa, 7 ans",
+                emoji: "👨",
+                coque: "Luna la Licorne",
+              },
+              {
+                text: "La coque Sirène a été choisie par ma fille en 2 secondes. Elle la chérit comme un jouet. Et moi j'ai la paix d'esprit quand elle est chez ses grands-parents.",
+                name: "Camille R.",
+                role: "Maman de Chloé, 5 ans",
+                emoji: "👩‍🦱",
+                coque: "Ariel la Sirène",
+              },
+            ].map((t, i) => (
+              <div key={i} className="bg-white border border-zinc-100 rounded-3xl p-6 shadow-sm">
+                <div className="flex mb-3">
+                  {"★★★★★".split("").map((s, j) => (
+                    <span key={j} className="text-yellow-400">{s}</span>
                   ))}
                 </div>
-                <p className="text-zinc-600 text-sm leading-relaxed mb-5 italic">&ldquo;{t.quote}&rdquo;</p>
+                <p className="text-zinc-700 leading-relaxed mb-5 text-sm">&ldquo;{t.text}&rdquo;</p>
                 <div className="flex items-center gap-3">
-                  <div className="text-3xl">{t.emoji}</div>
+                  <span className="text-3xl">{t.emoji}</span>
                   <div>
-                    <div className="font-bold text-zinc-900 text-sm">{t.author}</div>
-                    <div className="text-zinc-400 text-xs">{t.role}</div>
+                    <p className="font-bold text-zinc-900 text-sm">{t.name}</p>
+                    <p className="text-zinc-400 text-xs">{t.role}</p>
                   </div>
+                  <span className="ml-auto text-xs bg-purple-50 text-[#9333EA] border border-purple-100 rounded-full px-2 py-1 font-medium">
+                    {t.coque}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="text-center mt-10">
+            <Link href="/avis" className="text-sm font-semibold text-[#9333EA] hover:underline">
+              Voir tous les avis →
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #9333EA 0%, #EC4899 50%, #F97316 100%)" }}>
-        <div className="absolute inset-0 pointer-events-none opacity-10"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 80%, white 0%, transparent 50%), radial-gradient(circle at 80% 20%, white 0%, transparent 50%)" }} />
-        <div className="mx-auto max-w-3xl px-4 text-center relative">
-          <div className="text-6xl mb-6 animate-float">🤝</div>
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            Prêt à offrir<br />la magie à ton enfant ?
+      {/* ── FINAL CTA ─────────────────────────────────────────── */}
+      <section className="hero-gradient py-20 lg:py-28">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <div className="text-5xl mb-6">🤝</div>
+          <h2 className="text-4xl sm:text-5xl font-black text-zinc-900 mb-6">
+            Prêt à offrir la<br />
+            <span className="gradient-text">liberté sans écran ?</span>
           </h2>
-          <p className="text-white/80 text-xl mb-10 max-w-xl mx-auto">
-            Rejoins +500 familles en précommande. Livraison été 2026. Satisfait ou remboursé 30 jours.
+          <p className="text-lg text-zinc-500 mb-10 max-w-xl mx-auto">
+            Rejoignez les premières familles Buddy. Précommande ouverte,
+            livraison été 2026. Satisfait ou remboursé 30 jours.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#pricing" className="bg-white text-[#9333EA] rounded-2xl px-10 py-5 text-lg font-black shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
-              Précommander — 119€
-            </Link>
-            <Link href="#comment-ca-marche" className="bg-white/20 backdrop-blur-sm text-white rounded-2xl px-10 py-5 text-lg font-semibold border border-white/30 hover:bg-white/30 transition-colors">
-              En savoir plus →
-            </Link>
-          </div>
-          <p className="text-white/60 text-sm mt-6">Sans engagement · Port offert en France · Garantie 2 ans</p>
+          <Link href="#shop"
+            className="btn-gradient inline-flex rounded-2xl px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-purple-200">
+            Choisir le Buddy de mon enfant — 119€ →
+          </Link>
+          <p className="text-sm text-zinc-400 mt-5">
+            Port offert · Paiement sécurisé · Livraison été 2026
+          </p>
         </div>
       </section>
     </>
