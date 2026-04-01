@@ -20,11 +20,11 @@ export default function Home() {
                 Précommande ouverte — Livraison été 2026
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-[64px] font-black leading-[1.05] tracking-tight text-zinc-900 mb-6">
+              <h1 className="text-[2rem] sm:text-5xl lg:text-[64px] font-black leading-[1.1] lg:leading-[1.05] tracking-tight text-zinc-900 mb-4 sm:mb-6">
                 Le premier<br />
                 communicateur<br />
                 <span className="gradient-text">sans écran</span><br />
-                pour ton enfant.
+                pour votre enfant.
               </h1>
 
               <p className="text-lg text-zinc-500 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
@@ -32,26 +32,27 @@ export default function Home() {
                 <strong className="text-zinc-700"> Sans distraction, sans réseau social.</strong>
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-10">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6 sm:mb-10">
                 <Link href="#shop"
-                  className="btn-gradient rounded-2xl px-8 py-4 text-base font-bold text-white shadow-xl shadow-purple-200">
-                  Choisir le Buddy de mon enfant — 119€ →
+                  className="btn-gradient rounded-2xl px-6 sm:px-8 py-4 text-base font-bold text-white shadow-xl shadow-purple-200">
+                  <span className="sm:hidden">Choisir — 119€ →</span>
+                  <span className="hidden sm:inline">Choisir le Buddy de mon enfant — 119€ →</span>
                 </Link>
                 <Link href="/comment-ca-marche"
-                  className="rounded-2xl px-8 py-4 text-base font-semibold text-zinc-600 bg-zinc-50 border border-zinc-200 hover:border-[#9333EA] hover:text-[#9333EA] transition-colors">
+                  className="rounded-2xl px-6 sm:px-8 py-4 text-base font-semibold text-zinc-600 bg-zinc-50 border border-zinc-200 hover:border-[#9333EA] hover:text-[#9333EA] transition-colors">
                   Comment ça marche
                 </Link>
               </div>
 
               {/* Trust micro-badges */}
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start text-sm text-zinc-500">
+              <div className="flex flex-nowrap overflow-x-auto sm:flex-wrap gap-2 sm:gap-3 justify-start sm:justify-center lg:justify-start text-sm text-zinc-500 pb-1 sm:pb-0 -mx-1 px-1 sm:mx-0 sm:px-0">
                 {[
-                  { icon: "🛡️", text: "IP67 — résistant à l'eau" },
-                  { icon: "📦", text: "Port offert en France" },
-                  { icon: "🔄", text: "Satisfait ou remboursé 30j" },
+                  { icon: "🛡️", text: "IP67" },
+                  { icon: "📦", text: "Port offert" },
+                  { icon: "🔄", text: "30j remboursé" },
                   { icon: "🇫🇷", text: "Conçu en France" },
                 ].map((b) => (
-                  <span key={b.text} className="flex items-center gap-1.5 bg-zinc-50 border border-zinc-100 rounded-full px-3 py-1.5 font-medium">
+                  <span key={b.text} className="flex flex-shrink-0 items-center gap-1.5 bg-zinc-50 border border-zinc-100 rounded-full px-3 py-1.5 font-medium whitespace-nowrap">
                     <span>{b.icon}</span>{b.text}
                   </span>
                 ))}
@@ -59,9 +60,9 @@ export default function Home() {
             </div>
 
             {/* Image column */}
-            <div className="flex-1 order-1 lg:order-2 relative flex justify-center">
+            <div className="w-full lg:flex-1 order-1 lg:order-2 relative flex justify-center px-2 sm:px-0">
               {/* Main hero image */}
-              <div className="relative">
+              <div className="relative w-full max-w-[560px]">
                 <div className="absolute inset-0 rounded-3xl scale-110"
                   style={{ background: "radial-gradient(ellipse, rgba(147,51,234,0.12) 0%, transparent 70%)" }} />
                 <Image
@@ -70,17 +71,17 @@ export default function Home() {
                   width={560}
                   height={420}
                   priority
-                  className="relative rounded-3xl drop-shadow-2xl"
+                  className="relative rounded-3xl drop-shadow-2xl w-full h-auto"
                 />
               </div>
-              {/* Floating badge */}
-              <div className="absolute top-4 right-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-purple-100">
+              {/* Floating badge — hidden on very small screens */}
+              <div className="hidden xs:block absolute top-2 right-2 sm:top-4 sm:right-4 bg-white rounded-2xl shadow-xl px-3 sm:px-4 py-2 sm:py-3 border border-purple-100">
                 <p className="text-xs text-zinc-400 font-medium">À partir de</p>
-                <p className="text-2xl font-black gradient-text">119€</p>
+                <p className="text-xl sm:text-2xl font-black gradient-text">119€</p>
                 <p className="text-xs text-zinc-400">port offert</p>
               </div>
-              <div className="absolute bottom-6 left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-zinc-100 flex items-center gap-3">
-                <span className="text-2xl">🎨</span>
+              <div className="hidden sm:flex absolute bottom-4 sm:bottom-6 left-2 sm:left-4 bg-white rounded-2xl shadow-xl px-3 sm:px-4 py-2 sm:py-3 border border-zinc-100 items-center gap-2 sm:gap-3">
+                <span className="text-xl sm:text-2xl">🎨</span>
                 <div>
                   <p className="text-xs font-bold text-zinc-800">+20 personnages</p>
                   <p className="text-xs text-zinc-400">à collectionner</p>
@@ -95,20 +96,20 @@ export default function Home() {
       {/* ── TRUST BAR ────────────────────────────────────────── */}
       <div className="border-y border-zinc-100 bg-zinc-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center lg:justify-between items-center gap-8 py-6">
+          <div className="flex overflow-x-auto lg:flex-wrap lg:overflow-visible scrollbar-hide justify-start lg:justify-between items-center gap-6 lg:gap-8 py-4 lg:py-6">
             {[
               { icon: "🎙️", title: "Messages vocaux",    sub: "Appui = envoie" },
               { icon: "📍", title: "GPS temps réel",      sub: "Suivi en direct" },
               { icon: "🚨", title: "Alerte SOS",          sub: "Sécurité immédiate" },
               { icon: "🔋", title: "7 jours d'autonomie", sub: "Une charge/semaine" },
-              { icon: "💧", title: "IP67",                 sub: "Chutes & eau" },
+              { icon: "💧", title: "IP67",                sub: "Chutes & eau" },
               { icon: "👨‍👩‍👦", title: "App parents",         sub: "iOS & Android" },
             ].map((f) => (
-              <div key={f.title} className="flex items-center gap-3 text-sm">
-                <span className="text-2xl">{f.icon}</span>
+              <div key={f.title} className="flex flex-shrink-0 items-center gap-2 lg:gap-3 text-sm">
+                <span className="text-xl lg:text-2xl">{f.icon}</span>
                 <div>
-                  <p className="font-bold text-zinc-800 leading-tight">{f.title}</p>
-                  <p className="text-zinc-500 leading-tight">{f.sub}</p>
+                  <p className="font-bold text-zinc-800 leading-tight whitespace-nowrap">{f.title}</p>
+                  <p className="text-zinc-500 leading-tight whitespace-nowrap">{f.sub}</p>
                 </div>
               </div>
             ))}

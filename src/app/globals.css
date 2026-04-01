@@ -87,6 +87,15 @@ body {
 .wave-bar:nth-child(6) { animation-delay: 0.12s; }
 .wave-bar:nth-child(7) { animation-delay: 0.00s; }
 
+/* ── Mobile utilities ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Brand helpers ── */
 .gradient-text {
   background: linear-gradient(135deg, #9333EA 0%, #EC4899 50%, #F97316 100%);

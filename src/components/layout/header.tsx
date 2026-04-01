@@ -61,8 +61,9 @@ export function Header() {
               )}
             </button>
 
-            <Link href="/#shop" className="btn-gradient rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md">
-              Choisir mon Buddy
+            <Link href="/#shop" className="btn-gradient rounded-full px-4 sm:px-5 py-2.5 text-sm font-semibold text-white shadow-md">
+              <span className="sm:hidden">Commander</span>
+              <span className="hidden sm:inline">Choisir mon Buddy</span>
             </Link>
             <button className="md:hidden p-2 rounded-lg text-zinc-600" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? (

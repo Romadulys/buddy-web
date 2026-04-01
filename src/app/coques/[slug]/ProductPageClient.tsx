@@ -324,6 +324,33 @@ export function ProductPageClient({ coque, related }: Props) {
           </div>
         </div>
       </section>
+
+      {/* ── STICKY BOTTOM BAR — mobile only ───────────────────── */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-zinc-200 px-4 py-3 shadow-2xl">
+        <div className="flex items-center gap-3">
+          {/* Product thumbnail */}
+          <div className="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border border-zinc-100 bg-zinc-50">
+            <Image src={coque.img} alt={coque.name} fill sizes="48px" className="object-cover" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-bold text-zinc-900 leading-tight truncate">{coque.emoji} {coque.name} — {coque.label}</p>
+            <p className="text-xs text-zinc-400 leading-tight">Coque 14,99€ · Pack 119€</p>
+          </div>
+          <button
+            onClick={handleAddCoque}
+            className={`flex-shrink-0 rounded-xl px-4 py-2.5 text-sm font-bold transition-all ${
+              added === "coque"
+                ? "bg-green-500 text-white"
+                : "btn-gradient text-white shadow-md"
+            }`}
+          >
+            {added === "coque" ? "✓ Ajouté !" : "+ Panier"}
+          </button>
+        </div>
+      </div>
+
+      {/* Bottom padding on mobile to account for sticky bar */}
+      <div className="h-20 lg:hidden" />
     </>
   );
 }
