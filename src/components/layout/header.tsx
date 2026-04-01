@@ -29,10 +29,12 @@ export function Header() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            <Link href="#comment-ca-marche" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Comment ça marche</Link>
-            <Link href="#personnalites" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Les Buddy</Link>
-            <Link href="#app" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Application</Link>
-            <Link href="#pricing" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Tarifs</Link>
+            <Link href="/comment-ca-marche" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Comment ça marche</Link>
+            <Link href="/#personnalites" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Les Buddy</Link>
+            <Link href="/parents" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Parents</Link>
+            <Link href="/avis" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Avis</Link>
+            <Link href="/#pricing" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">Tarifs</Link>
+            <Link href="/faq" className="text-sm font-medium text-zinc-600 hover:text-[#9333EA] transition-colors">FAQ</Link>
           </div>
 
           <div className="flex items-center gap-3">
@@ -57,11 +59,14 @@ export function Header() {
         </nav>
 
         {mobileOpen && (
-          <div className="md:hidden border-t border-purple-100 bg-white px-4 py-4 space-y-3">
-            <Link href="#comment-ca-marche" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Comment ça marche</Link>
-            <Link href="#personnalites" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Les Buddy</Link>
-            <Link href="#app" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Application</Link>
-            <Link href="#pricing" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Tarifs</Link>
+          <div className="md:hidden border-t border-purple-100 bg-white px-4 py-4 space-y-1">
+            <Link href="/comment-ca-marche" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Comment ça marche</Link>
+            <Link href="/#personnalites" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Les Buddy</Link>
+            <Link href="/parents" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Parents</Link>
+            <Link href="/avis" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Avis</Link>
+            <Link href="/#pricing" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Tarifs</Link>
+            <Link href="/faq" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>FAQ</Link>
+            <Link href="/a-propos" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>À propos</Link>
             <Link href="/login" className="block text-sm font-medium text-zinc-700 py-2" onClick={() => setMobileOpen(false)}>Connexion</Link>
           </div>
         )}

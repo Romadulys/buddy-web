@@ -32,10 +32,12 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white mb-4">Produit</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="#comment-ca-marche" className="hover:text-white transition-colors">Comment ça marche</Link></li>
-              <li><Link href="#personnalites" className="hover:text-white transition-colors">Les personnalités</Link></li>
-              <li><Link href="#app" className="hover:text-white transition-colors">Application parents</Link></li>
-              <li><Link href="#pricing" className="hover:text-white transition-colors">Tarifs</Link></li>
+              <li><Link href="/comment-ca-marche" className="hover:text-white transition-colors">Comment ça marche</Link></li>
+              <li><Link href="/#personnalites" className="hover:text-white transition-colors">Les personnalités</Link></li>
+              <li><Link href="/parents" className="hover:text-white transition-colors">Application parents</Link></li>
+              <li><Link href="/#pricing" className="hover:text-white transition-colors">Tarifs</Link></li>
+              <li><Link href="/avis" className="hover:text-white transition-colors">Avis</Link></li>
+              <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>
 
@@ -43,7 +45,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white mb-4">Entreprise</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/about" className="hover:text-white transition-colors">À propos</Link></li>
+              <li><Link href="/a-propos" className="hover:text-white transition-colors">À propos</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><a href="mailto:hello@getbuddy.fr" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
