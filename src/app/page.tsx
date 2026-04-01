@@ -1,32 +1,5 @@
 import Link from "next/link";
-
-function BuddyDevice({ emoji = "🦁", color = "#FB923C" }: { emoji?: string; color?: string }) {
-  return (
-    <div
-      className="relative mx-auto w-36 h-56 rounded-3xl shadow-2xl flex flex-col items-center justify-between py-4 border-4"
-      style={{ background: `linear-gradient(160deg, ${color}22 0%, ${color}44 100%)`, borderColor: color }}
-    >
-      <div className="w-24 h-5 rounded-full bg-black/10 relative overflow-hidden">
-        <div
-          className="absolute inset-0 rounded-full animate-led-fill"
-          style={{ background: `linear-gradient(90deg, ${color}, #fff, ${color})` }}
-        />
-      </div>
-      <div className="flex flex-col items-center gap-1">
-        <span className="text-4xl">{emoji}</span>
-        <span className="text-xs font-black tracking-widest" style={{ color }}> BUDDY</span>
-      </div>
-      <div
-        className="w-14 h-14 rounded-full shadow-lg flex items-center justify-center border-4 border-white"
-        style={{ background: color }}
-      >
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zM7 10a5 5 0 0010 0h2a7 7 0 01-6 6.93V20h3v2H8v-2h3v-3.07A7 7 0 015 10h2z" />
-        </svg>
-      </div>
-    </div>
-  );
-}
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -92,15 +65,36 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex-1 flex items-end justify-center gap-6">
-              <div className="animate-float" style={{ animationDelay: "0s" }}>
-                <BuddyDevice emoji="🦁" color="#FB923C" />
+            <div className="flex-1 flex items-center justify-center relative">
+              {/* Glow background */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-80 h-80 rounded-full opacity-30 blur-3xl"
+                  style={{ background: "radial-gradient(circle, #9333EA 0%, #EC4899 50%, transparent 70%)" }} />
               </div>
-              <div className="animate-float mb-8" style={{ animationDelay: "0.5s" }}>
-                <BuddyDevice emoji="🦄" color="#C084FC" />
+              {/* Real product image */}
+              <div className="animate-float relative z-10">
+                <Image
+                  src="/images/device/buddy-3views-color.jpg"
+                  alt="Buddy — communicateur sans écran pour enfants, 3 vues (face, côté, dos)"
+                  width={480}
+                  height={554}
+                  className="drop-shadow-2xl rounded-2xl"
+                  priority
+                />
               </div>
-              <div className="animate-float" style={{ animationDelay: "1s" }}>
-                <BuddyDevice emoji="🐰" color="#F472B6" />
+              {/* Floating badge — LED */}
+              <div className="absolute top-8 -right-4 bg-white rounded-2xl shadow-xl p-3 border border-purple-100 animate-float z-20" style={{ animationDelay: "0.8s" }}>
+                <div className="text-xs font-bold text-[#9333EA] mb-1">✨ Flying Message</div>
+                <div className="flex gap-1 items-end h-4">
+                  {[...Array(8)].map((_, i) => (
+                    <div key={i} className="w-1.5 rounded-full wave-bar" style={{ background: "linear-gradient(135deg,#9333EA,#F97316)" }} />
+                  ))}
+                </div>
+              </div>
+              {/* Floating badge — IP67 */}
+              <div className="absolute bottom-12 -left-4 bg-white rounded-2xl shadow-xl px-4 py-2 border border-zinc-100 animate-float z-20" style={{ animationDelay: "0.3s" }}>
+                <div className="text-sm font-black text-zinc-900">🛡️ IP67</div>
+                <div className="text-xs text-zinc-500">Étanche & anti-choc</div>
               </div>
             </div>
           </div>
@@ -343,23 +337,40 @@ export default function Home() {
 
       {/* ── SPECS ── */}
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-zinc-900">Conçu pour <span className="gradient-text">durer.</span></h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-            {[
-              { value: "80×60×20mm", label: "Format walkie-talkie", emoji: "📐" },
-              { value: "IP67", label: "Étanche & anti-choc", emoji: "🛡️" },
-              { value: "1 semaine", label: "Autonomie cible", emoji: "🔋" },
-              { value: "150g", label: "Poids plume", emoji: "⚡" },
-            ].map((s) => (
-              <div key={s.label} className="bg-zinc-50 rounded-3xl p-6">
-                <div className="text-3xl mb-2">{s.emoji}</div>
-                <div className="text-xl font-black text-zinc-900">{s.value}</div>
-                <div className="text-sm text-zinc-500 mt-1">{s.label}</div>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Drawing */}
+            <div className="flex-1 flex justify-center">
+              <Image
+                src="/images/device/buddy-drawing.jpg"
+                alt="Plan technique Buddy — dimensions 80×60×20mm, barre LED, bouton PTT, boutons volume"
+                width={420}
+                height={484}
+                className="rounded-2xl shadow-lg"
+              />
+            </div>
+            <div className="flex-1">
+              <p className="text-[#9333EA] font-semibold text-sm uppercase tracking-widest mb-3">Spécifications techniques</p>
+              <h2 className="text-4xl font-black text-zinc-900 mb-8">Conçu pour <span className="gradient-text">durer.</span></h2>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "80×60×20mm", label: "Format walkie-talkie", emoji: "📐" },
+                  { value: "IP67", label: "Étanche & anti-choc", emoji: "🛡️" },
+                  { value: "1 semaine", label: "Autonomie cible", emoji: "🔋" },
+                  { value: "150g", label: "Poids plume", emoji: "⚡" },
+                  { value: "4G LTE + Wi-Fi", label: "Connectivité double", emoji: "📶" },
+                  { value: "1,5m", label: "Résistance aux chutes", emoji: "🪂" },
+                ].map((s) => (
+                  <div key={s.label} className="bg-zinc-50 rounded-2xl p-4 flex items-center gap-3">
+                    <span className="text-2xl">{s.emoji}</span>
+                    <div>
+                      <div className="font-black text-zinc-900 text-sm">{s.value}</div>
+                      <div className="text-xs text-zinc-500">{s.label}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
