@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CartProvider } from "@/contexts/CartContext";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import BuddyChat from "@/components/BuddyChat";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -51,6 +52,7 @@ export default function RootLayout({
           <CartDrawer />
           <main className="flex-1">{children}</main>
           <Footer />
+          <BuddyChat />
         </CartProvider>
       </body>
     </html>

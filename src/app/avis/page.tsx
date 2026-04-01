@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AvisFilters } from "@/components/avis/AvisFilters";
+import { AvisSubmitForm } from "@/components/avis/AvisSubmitForm";
 
 export const metadata: Metadata = {
   title: "Avis Buddy — Témoignages de parents sur le communicateur sans écran",
@@ -221,6 +222,20 @@ export default function AvisPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Submit your review */}
+      <section className="py-20 px-4 bg-white border-t border-zinc-100">
+        <div className="mx-auto max-w-2xl text-center mb-10">
+          <span className="inline-block bg-purple-100 text-[#9333EA] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+            Déposer un avis
+          </span>
+          <h2 className="text-3xl font-black text-zinc-900">Vous avez testé Buddy ?</h2>
+          <p className="text-zinc-500 mt-2 text-sm">
+            Partagez votre expérience — votre témoignage aide d&apos;autres familles à franchir le pas.
+          </p>
+        </div>
+        <AvisSubmitForm />
       </section>
 
       {/* CTA */}
