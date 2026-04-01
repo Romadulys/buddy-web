@@ -2,39 +2,67 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+    <footer className="bg-zinc-950 text-zinc-400">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-2xl">🤝</span>
+              <span className="text-xl font-black gradient-text">BUDDY</span>
+            </div>
+            <p className="text-sm leading-relaxed text-zinc-500 max-w-xs">
+              Le premier communicateur sans écran pour les enfants. Tes mots prennent leur envol.
+            </p>
+            <div className="mt-6 flex gap-4">
+              <a href="https://instagram.com" className="text-zinc-500 hover:text-white transition-colors">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </a>
+              <a href="https://tiktok.com" className="text-zinc-500 hover:text-white transition-colors">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Produit */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Product</h3>
-            <ul className="mt-4 space-y-2">
-              <li><Link href="/products" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">GPS Tracker</Link></li>
-              <li><Link href="/pricing" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">Plans</Link></li>
+            <h3 className="text-sm font-semibold text-white mb-4">Produit</h3>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="#comment-ca-marche" className="hover:text-white transition-colors">Comment ça marche</Link></li>
+              <li><Link href="#personnalites" className="hover:text-white transition-colors">Les personnalités</Link></li>
+              <li><Link href="#app" className="hover:text-white transition-colors">Application parents</Link></li>
+              <li><Link href="#pricing" className="hover:text-white transition-colors">Tarifs</Link></li>
             </ul>
           </div>
+
+          {/* Entreprise */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Company</h3>
-            <ul className="mt-4 space-y-2">
-              <li><Link href="/about" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">About</Link></li>
-              <li><Link href="/blog" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">Blog</Link></li>
+            <h3 className="text-sm font-semibold text-white mb-4">Entreprise</h3>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/about" className="hover:text-white transition-colors">À propos</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><a href="mailto:hello@getbuddy.fr" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
+
+          {/* Légal */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Legal</h3>
-            <ul className="mt-4 space-y-2">
-              <li><Link href="/terms" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">Terms</Link></li>
-              <li><Link href="/privacy" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">Privacy</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Support</h3>
-            <ul className="mt-4 space-y-2">
-              <li><Link href="/account" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">My Account</Link></li>
+            <h3 className="text-sm font-semibold text-white mb-4">Légal</h3>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/terms" className="hover:text-white transition-colors">CGV</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">Confidentialité</Link></li>
+              <li><Link href="/account" className="hover:text-white transition-colors">Mon compte</Link></li>
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t border-zinc-200 pt-8 dark:border-zinc-800">
-          <p className="text-sm text-zinc-500">&copy; {new Date().getFullYear()} Buddy. All rights reserved.</p>
+
+        <div className="mt-12 border-t border-zinc-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-zinc-600">© {new Date().getFullYear()} Buddy. Tous droits réservés.</p>
+          <p className="text-sm text-zinc-600">Fait avec 🤝 en France</p>
         </div>
       </div>
     </footer>

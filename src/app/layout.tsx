@@ -1,27 +1,36 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Buddy — Never Lose What Matters",
+    default: "Buddy — Tes mots prennent leur envol",
     template: "%s | Buddy",
   },
   description:
-    "Buddy GPS tracker keeps your pets, family, and belongings safe with real-time location tracking and 4G connectivity.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://buddy.example.com"),
+    "Buddy est le premier communicateur sans écran pour les enfants de 4 à 8 ans. Messages vocaux, GPS, alerte SOS — toute la magie de la communication, sans distraction.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://getbuddy.fr"),
+  openGraph: {
+    title: "Buddy — Tes mots prennent leur envol",
+    description: "Le communicateur sans écran pensé pour les enfants.",
+    locale: "fr_FR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -31,10 +40,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="fr"
+      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className={`min-h-full flex flex-col font-[family-name:var(--font-poppins)]`}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
